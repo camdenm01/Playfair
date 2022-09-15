@@ -1,0 +1,22 @@
+#input{
+
+}
+
+#output{
+
+}
+
+#header{
+    margin: 0px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+}
+
+h2{
+    display: inline-block;
+    width: 100%;
+    background-color: aqua;
+    text-align: center;
+    padding: 10px;
+
+}
