@@ -12,6 +12,9 @@
     margin-bottom: 10px;
 }
 
+#io{
+    display:flex;
+}
 h2{
     display: inline-block;
     width: 100%;
