@@ -3,15 +3,64 @@
 <head>
 <title>Playfair</title>
 <link rel="stylesheet" href="css/styles.css">
+<script src="js/ciphers.js"></script>
 <meta name="description" content="An enciphering and deciphering tool for playfair ciphers">
 </head>
 <body>
     <h2 id="header">Playfair Ciphers</h2>
+<div id="pagecontent">
+<div id="Interactive">
     <div id="io">
-        <textarea id="input" rows="10" columns="50" style="width:50%; height: 50%;">Input</textarea>
-        <button>Encipher</button>
-        <button>Decipher</button>
-        <textarea id="output" rows="10" columns="50" style="width:50%; height: 50%;">Output</textarea>
+        <textarea id="input" rows="10" columns="50" style="width:50%; height: 50%;" placeholder="Input" onfocus="placeholder=''"></textarea>
+        <button id = "swapbutton" onclick="swap()">Swap</button>
+        <textarea id="output" rows="10" columns="50" style="width:50%; height: 50%;" placeholder="Output" onfocus="placeholder=''"></textarea>
     </div>
+    <div id="buttons">
+        <button onclick="encipher()">Encipher</button>
+        <button onclick="decipher()">Decipher</button>
+    </div>
+</div>
+<div id="psquare">
+    <div id="grid-col">
+        <div class="cell" id="cell1">A</div> 
+        <div class="cell" id="cell2">B</div> 
+        <div class="cell" id="cell3">C</div> 
+        <div class="cell" id="cell4">D</div> 
+        <div class="cell" id="cell5">E</div>
+    </div>
+    <div id="grid-col">
+        <div class="cell" id="cell6">F</div> 
+        <div class="cell" id="cell7">G</div> 
+        <div class="cell" id="cell8">H</div> 
+        <div class="cell" id="cell9">I/J</div> 
+        <div class="cell" id="cell10">K</div>
+    </div>
+    <div id="grid-col">
+        <div class="cell" id="cell11">L</div> 
+        <div class="cell" id="cell12">M</div> 
+        <div class="cell" id="cell13">N</div> 
+        <div class="cell" id="cell14">O</div> 
+        <div class="cell" id="cell15">P</div>
+    </div>
+    <div id="grid-col">
+        <div class="cell" id="cell16">Q</div> 
+        <div class="cell" id="cell17">R</div> 
+        <div class="cell" id="cell18">S</div> 
+        <div class="cell" id="cell19">T</div> 
+        <div class="cell" id="cell20">U</div>
+    </div>
+    <div id="grid-col">
+        <div class="cell" id="cell21">V</div> 
+        <div class="cell" id="cell22">W</div> 
+        <div class="cell" id="cell23">X</div> 
+        <div class="cell" id="cell24">Y</div> 
+        <div class="cell" id="cell25">Z</div>
+    </div>
+    <div id="key">
+        <p id = "keyword">Keyword:</p>
+        <input type="text" id="keyword-input" onkeyup="changeSquare()">
+    </div>
+</div>
+</div>
 </body>
 </html>

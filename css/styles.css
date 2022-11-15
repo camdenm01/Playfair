@@ -1,9 +1,35 @@
-#input{
+#pagecontent{
+    display:flex;
+}
 
+#Interactive{
+    height: 100%;
+    flex: 4;
+}
+
+#psquare{
+    flex: 1;
+    margin-right: 5%;
+    margin-top: 5%;
+}
+
+#input{
+    width: 75% !important;
+    margin-bottom:5%;
+}
+
+input:focus::placeholder{
+    color: transparent;
+}
+
+output:focus::placeholder{
+    color: transparent;
 }
 
 #output{
-
+    width: 75% !important;
+    margin-bottom:5%;
+    margin-top: 5%;
 }
 
 #header{
@@ -13,13 +39,75 @@
 }
 
 #io{
-    display:flex;
+    display:block;
+}
+
+#key{
+    display:block;
+}
+
+#keyword{
+    display:inline-block;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+#keyword-input{
+    display:inline-block;
+    margin-top: 10%;
+}
+
+button{
+    display:inline-block;
+    width: 20%;
+    background-color: aqua;
+    padding: 1%;
+    margin: 0px 0px 0px 0px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: aquamarine;
+}
+
+#buttons{
+    display:block;
+    margin-left: 18.5%;
+}
+
+#swapbutton{
+    display:block;
+    width: 20%;
+    margin-left: 25%;
 }
 h2{
     display: inline-block;
     width: 100%;
     background-color: aqua;
     text-align: center;
-    padding: 10px;
+    padding-top:1%;
+    padding-bottom: 1%;
 
 }
+
+#grid-col {
+    display: grid;
+    width:30%;
+    /* we can also specify exact pixels, percentage, repeat
+    grid-template-columns: 50px 100px 150px;*/
+    /*grid-template-columns: 25% 50% 25%;*/
+    /*grid-template-columns: 100px 20% auto;*/
+    grid-template-columns: repeat(5, auto); 
+  }
+
+  div.cell {
+    text-align: center;
+    font-weight: bold;
+    background: aqua;
+    border: 1px solid Blue;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+  }
