@@ -5,12 +5,21 @@
 #Interactive{
     height: 100%;
     flex: 4;
+    margin-left: 3%;
 }
 
 #psquare{
-    flex: 1;
-    margin-right: 5%;
+    flex: 1.4;
+    margin-right: 7%;
     margin-top: 5%;
+}
+
+#info{
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: justify;
+    margin-right: 3%;
+    margin-bottom: 12%;
 }
 
 #input{
@@ -32,7 +41,19 @@ output:focus::placeholder{
     margin-top: 5%;
 }
 
+#analysis-input{
+    width: 75% !important;
+}
+#analysis-output{
+    width: 75% !important;
+}
+
+#analysis-button{
+    margin-left: 20%;
+}
+
 #header{
+    display:inline-block;
     margin: 0px;
     margin-left: 0px;
     margin-bottom: 10px;
@@ -74,7 +95,7 @@ button:hover{
 
 #buttons{
     display:block;
-    margin-left: 18.5%;
+    margin-left: 6.9%;
 }
 
 #swapbutton{
@@ -110,4 +131,8 @@ h2{
     padding: 10px;
     width: 30px;
     height: 30px;
+    caret-color: transparent;
   }
+
+
+  

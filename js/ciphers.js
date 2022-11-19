@@ -12,21 +12,25 @@ function swap(){
 
 function encipher(){
     isDecipher = false;
-    var cipherText = encipherPlayfair();
+    var keyword = document.getElementById("keyword-input").value;
+    var square = getPolybiusSquare(keyword);
+    var cipherText = encipherPlayfair(square);
     document.getElementById("output").value = cipherText;
 }
 
 function decipher(){
     console.log("deciphering");
     isDecipher = true;
-    var decipheredText = encipherPlayfair();
+    var keyword = document.getElementById("keyword-input").value;
+    var square = getPolybiusSquare(keyword);
+    var decipheredText = encipherPlayfair(square);
     document.getElementById("output").value = decipheredText;
 }
 
-function encipherPlayfair(){
+function encipherPlayfair(square){
     var plainText = document.getElementById("input").value;
-    var keyword = document.getElementById("keyword-input").value;
-    var square = getPolybiusSquare(keyword);
+    // var keyword = document.getElementById("keyword-input").value;
+    // var square = getPolybiusSquare(keyword);
     let cipherText = "";
     let firstRow = 0, firstColumn = 0, secondRow = 0, secondcolumn = 0;
     plainText = plainText.replace(/\\s/g, "" );
@@ -157,4 +161,62 @@ function changeSquare(){
     console.log(keyword);
     let square = getPolybiusSquare(keyword);
     displayPolybiusSquare(square);
+}
+
+function cryptanalyze(event){
+    //if(event.key == "ArrowUp" || event.key == "ArrowDown") return false;
+    var square = new Array(new Array(5), new Array(5), new Array(5), new Array(5), new Array(5));
+    let cellNumber = 1;
+    for(let i = 0; i < 5; i++){
+        for(let j = 0; j < 5; j++){
+            idString="cell" + cellNumber;
+            square[i][j] = document.getElementById(idString).textContent.toUpperCase();
+            document.getElementById(idString).value == square[i][j];
+            if(square[i][j] == "I/J") square[i][j] = "I";
+            cellNumber++;
+        }
+    }
+    analyzedText = encipherPlayfair(square);
+    document.getElementById("analysis-output").value = analyzedText;
+    if (analyzedText == document.getElementById("analysis-input").value && analyzedText != ""){
+        document.getElementById("analysis-output").style.backgroundColor = "lightgreen";
+    }
+    else{
+        document.getElementById("analysis-output").style.backgroundColor = "transparent";
+    }
+}
+
+function moveGrid(event){
+    let idString = document.activeElement.id;
+    cellNumber = parseInt(idString.substr(4));
+    console.log("old cell number: " + cellNumber);
+    if(event.key == "ArrowUp"){
+        cellNumber = (cellNumber - 5);
+    }
+    else if(event.key == "ArrowDown"){
+        cellNumber = (cellNumber + 5);
+    }
+    else if(event.key == "ArrowLeft"){
+        cellNumber = (cellNumber - 1);
+    }
+    else if(event.key == "ArrowRight"){
+        cellNumber = (cellNumber + 1);
+    }
+    else{
+        idString = "cell" + cellNumber;
+        //event was a letter
+        //uppercase
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+            document.getElementById(idString).textContent = String(event.key).toUpperCase();
+        } 
+        event.preventDefault();
+        return;
+    }
+    console.log("new cell number: " + cellNumber);
+    idString = "cell" + cellNumber;
+    newCell = document.getElementById(idString);
+    newCell.dispatchEvent(new KeyboardEvent('keydown', {'key': 'ArrowRight'}));
+    newCell.focus();
+    return;
+
 }
