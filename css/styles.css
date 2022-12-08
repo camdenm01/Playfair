@@ -112,6 +112,12 @@ h2{
     padding-bottom: 1%;
 
 }
+footer{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
 #grid-col {
     display: grid;
