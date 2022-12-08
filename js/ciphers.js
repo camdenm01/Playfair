@@ -178,7 +178,14 @@ function cryptanalyze(event){
     }
     analyzedText = encipherPlayfair(square);
     document.getElementById("analysis-output").value = analyzedText;
-    if (analyzedText == document.getElementById("analysis-input").value && analyzedText != ""){
+    //analyzedText = analyzedText.toString();
+    analyzedText = analyzedText.replace(/\\s/g, "" );
+    analyzedText = analyzedText.replace(/[^A-Za-z]+/g, "");
+    comparisonText = document.getElementById("analysis-input").value.replace(/\\s/g, "");
+    comparisonText = comparisonText.replace(/[^A-Za-z]+/g, "");
+    console.log(comparisonText);
+    console.log(analyzedText);
+    if (analyzedText == comparisonText && analyzedText != ""){
         document.getElementById("analysis-output").style.backgroundColor = "lightgreen";
     }
     else{
@@ -201,6 +208,9 @@ function moveGrid(event){
     }
     else if(event.key == "ArrowRight"){
         cellNumber = (cellNumber + 1);
+    }
+    else if(event.key == "Backspace"){
+        return
     }
     else{
         idString = "cell" + cellNumber;
